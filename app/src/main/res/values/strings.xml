@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Navegar</string>
+    <string name="start_title">Pantalla</string>
+    <string name="start_action">next</string>
+    <string name="first_title">Pantalla 1</string>
+    <string name="second_title">Pantalla 2</string>
+    <string name="finish_title">Pantalla final</string>
+    <string name="back_action">back</string>
+    <string name="continue_action">next</string>
+    <string name="finish_action">Finish</string>
+</resources>
