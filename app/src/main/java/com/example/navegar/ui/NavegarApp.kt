@@ -1,18 +1,31 @@
-package com.example.navigar.ui
+package com.example.navegar.ui
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.res.stringResource
+import com.example.navegar.R
 
 @Composable
 fun NavegarApp() {
     val navController = rememberNavController()
     val navegarViewModel: NavegarViewModel = viewModel()
+    val uiState by navegarViewModel.uiState.collectAsStateWithLifecycle()
+    val message = stringResource(
+        when (uiState.numPantalla) {
+            0 -> R.string.message_initial
+            1 -> R.string.message_second
+            2 -> R.string.message_third
+            else -> R.string.message_final
+        }
+    )
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         NavHost(
@@ -22,6 +35,7 @@ fun NavegarApp() {
         ) {
             composable(NavegarRoute.Start) {
                 StartScreen(
+                    message = message,
                     onNext = {
                         navegarViewModel.incrementarContador()
                         navController.navigate(NavegarRoute.First)
@@ -31,7 +45,11 @@ fun NavegarApp() {
 
             composable(NavegarRoute.First) {
                 FirstScreen(
-                    onBack = { navController.popBackStack() },
+                    message = message,
+                    onBack = {
+                        navegarViewModel.decrementarContador()
+                        navController.popBackStack()
+                    },
                     onNext = {
                         navegarViewModel.incrementarContador()
                         navController.navigate(NavegarRoute.Second)
@@ -41,7 +59,11 @@ fun NavegarApp() {
 
             composable(NavegarRoute.Second) {
                 SecondScreen(
-                    onBack = { navController.popBackStack() },
+                    message = message,
+                    onBack = {
+                        navegarViewModel.decrementarContador()
+                        navController.popBackStack()
+                    },
                     onNext = {
                         navegarViewModel.incrementarContador()
                         navController.navigate(NavegarRoute.Finish)
@@ -51,7 +73,11 @@ fun NavegarApp() {
 
             composable(NavegarRoute.Finish) {
                 FinishScreen(
-                    onBack = { navController.popBackStack() },
+                    message = message,
+                    onBack = {
+                        navegarViewModel.decrementarContador()
+                        navController.popBackStack()
+                    },
                     onFinish = {
                         navegarViewModel.reiniciarContador()
                         navController.navigate(NavegarRoute.Start) {

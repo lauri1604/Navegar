@@ -1,4 +1,4 @@
-package com.example.navigar.ui
+package com.example.navegar.ui
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,6 +12,14 @@ class NavegarViewModel : ViewModel() {
     fun incrementarContador() {
         _uiState.update { currentState ->
             currentState.copy(numPantalla = currentState.numPantalla + 1)
+        }
+    }
+
+    fun decrementarContador() {
+        _uiState.update { currentState ->
+            currentState.copy(
+                numPantalla = (currentState.numPantalla - 1).coerceAtLeast(0)
+            )
         }
     }
 

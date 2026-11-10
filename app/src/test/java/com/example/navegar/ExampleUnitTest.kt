@@ -1,4 +1,4 @@
-package com.example.navigar
+package com.example.navegar
 
 import org.junit.Test
 

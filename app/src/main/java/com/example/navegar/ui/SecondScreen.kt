@@ -1,21 +1,23 @@
-package com.example.navigar.ui
+package com.example.navegar.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.navigar.R
-import com.example.navigar.ui.theme.NavigarTheme
+import com.example.navegar.R
+import com.example.navegar.ui.theme.NavegarTheme
 
 @Composable
-fun FirstScreen(
+fun SecondScreen(
     modifier: Modifier = Modifier,
+    message: String = "",
     onBack: () -> Unit = {},
     onNext: () -> Unit = {}
 ) {
     NavigationScreen(
         modifier = modifier,
-        title = stringResource(R.string.first_title),
+        title = stringResource(R.string.second_title),
+        message = message,
         backLabel = stringResource(R.string.back_action),
         onBack = onBack,
         primaryLabel = stringResource(R.string.continue_action),
@@ -23,10 +25,10 @@ fun FirstScreen(
     )
 }
 
-@Preview(name = "FirstScreen", showBackground = true)
+@Preview(name = "SecondScreen", showBackground = true)
 @Composable
-private fun FirstScreenPreview() {
-    NavigarTheme {
-        FirstScreen()
+private fun SecondScreenPreview() {
+    NavegarTheme {
+        SecondScreen()
     }
 }

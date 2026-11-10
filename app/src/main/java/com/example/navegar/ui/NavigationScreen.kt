@@ -1,10 +1,12 @@
-package com.example.navigar.ui
+package com.example.navegar.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -24,6 +26,7 @@ import androidx.compose.ui.unit.dp
 internal fun NavigationScreen(
     modifier: Modifier,
     title: String,
+    message: String,
     primaryLabel: String,
     onNext: () -> Unit = {},
     backLabel: String? = null,
@@ -56,6 +59,12 @@ internal fun NavigationScreen(
                     text = title,
                     style = MaterialTheme.typography.headlineMedium,
                     fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center
                 )
             }

@@ -1,19 +1,21 @@
-package com.example.navigar.ui
+package com.example.navegar.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.navigar.R
-import com.example.navigar.ui.theme.NavigarTheme
+import com.example.navegar.R
+import com.example.navegar.ui.theme.NavegarTheme
 
 @Composable
 fun StartScreen(
     modifier: Modifier = Modifier,
+    message: String = "",
     onNext: () -> Unit = {}
 ) {
     NavigationScreen(
         modifier = modifier,
         title = stringResource(R.string.start_title),
+        message = message,
         primaryLabel = stringResource(R.string.start_action),
         onNext = onNext
     )
@@ -22,7 +24,7 @@ fun StartScreen(
 @Preview(name = "StartScreen", showBackground = true)
 @Composable
 private fun StartScreenPreview() {
-    NavigarTheme {
+    NavegarTheme {
         StartScreen()
     }
 }

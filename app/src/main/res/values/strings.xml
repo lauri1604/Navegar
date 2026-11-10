@@ -8,4 +8,8 @@
     <string name="back_action">back</string>
     <string name="continue_action">next</string>
     <string name="finish_action">Finish</string>
+    <string name="message_initial">Estás en la pantalla inicial</string>
+    <string name="message_second">Estás en la segunda pantalla</string>
+    <string name="message_third">Estás en la tercera pantalla</string>
+    <string name="message_final">Estás en la pantalla final</string>
 </resources>

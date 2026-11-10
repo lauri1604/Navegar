@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.navigar"
+    namespace = "com.example.navegar"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.navigar"
+        applicationId = "com.example.navegar"
         minSdk = 24
         targetSdk = 37
         versionCode = 1
@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
