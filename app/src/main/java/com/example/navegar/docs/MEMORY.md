@@ -13,6 +13,6 @@ aporte.
 ## Decisiones
 - Mantener `theme` como subpaquete de `ui`, separado del composable principal.
 - `model` queda preparado como paquete, sin lógica hasta definir la app.
-- Los botones Next incrementan el contador del ViewModel y navegan; Back usa `popBackStack()`.
+- Solo Next incrementa `numPantalla` en el ViewModel; Back navega con `popBackStack()` sin modificar el contador.
 - Los textos del mensaje se resuelven desde `strings.xml` según `numPantalla`, sin duplicar estado.
 - Mantener los textos de interfaz en `strings.xml`.

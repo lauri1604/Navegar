@@ -14,18 +14,4 @@ class NavegarViewModel : ViewModel() {
             currentState.copy(numPantalla = currentState.numPantalla + 1)
         }
     }
-
-    fun decrementarContador() {
-        _uiState.update { currentState ->
-            currentState.copy(
-                numPantalla = (currentState.numPantalla - 1).coerceAtLeast(0)
-            )
-        }
-    }
-
-    fun reiniciarContador() {
-        _uiState.update { currentState ->
-            currentState.copy(numPantalla = 0)
-        }
-    }
 }

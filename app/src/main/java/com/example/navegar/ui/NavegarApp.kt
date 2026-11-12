@@ -46,10 +46,7 @@ fun NavegarApp() {
             composable(NavegarRoute.First) {
                 FirstScreen(
                     message = message,
-                    onBack = {
-                        navegarViewModel.decrementarContador()
-                        navController.popBackStack()
-                    },
+                    onBack = { navController.popBackStack() },
                     onNext = {
                         navegarViewModel.incrementarContador()
                         navController.navigate(NavegarRoute.Second)
@@ -60,10 +57,7 @@ fun NavegarApp() {
             composable(NavegarRoute.Second) {
                 SecondScreen(
                     message = message,
-                    onBack = {
-                        navegarViewModel.decrementarContador()
-                        navController.popBackStack()
-                    },
+                    onBack = { navController.popBackStack() },
                     onNext = {
                         navegarViewModel.incrementarContador()
                         navController.navigate(NavegarRoute.Finish)
@@ -74,12 +68,8 @@ fun NavegarApp() {
             composable(NavegarRoute.Finish) {
                 FinishScreen(
                     message = message,
-                    onBack = {
-                        navegarViewModel.decrementarContador()
-                        navController.popBackStack()
-                    },
+                    onBack = { navController.popBackStack() },
                     onFinish = {
-                        navegarViewModel.reiniciarContador()
                         navController.navigate(NavegarRoute.Start) {
                             popUpTo(NavegarRoute.Start) {
                                 inclusive = true
